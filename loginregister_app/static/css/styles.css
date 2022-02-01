@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.form-box{
+    padding: 40px;
+}
+.container{
+    margin: 50px auto;
+    min-width: 500px;
+    width: 600px;
+    
+}
+
+.btn{
+    border: 0;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.hover-grey:hover{
+    background-color: rgb(54, 54, 54);
+    color: white;
+}
+.btn-link{
+    padding: 10px 0px 0px 0px;
+    font-size: 24px;
+    text-decoration: none;
+}
+.btn-link:hover{
+    text-decoration: underline;
+}
+.border-top-dark{
+    border-top:1px solid black;
+}

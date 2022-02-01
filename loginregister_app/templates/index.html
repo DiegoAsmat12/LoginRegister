@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <title>RegistroYLogin</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+            <div class="container bg-dark">
+                <form action="/register" class="form-box" method="post" >
+                    <div class="mb-3">
+                        <h1 class="form-title text-primary">Register</h1>
+                    </div>
+                    {% with mensajesRegistro = get_flashed_messages( category_filter= ["registro"] ) %}
+                        {%if mensajesRegistro: %}
+                            <div class="alert alert-danger">
+                                <h2 class="text-danger">FLASH!!!</h2>
+                                {% for mensaje in mensajesRegistro: %}
+                                    <p class="text-danger">{{mensaje}}</p>
+                                {% endfor %}
+                            </div>
+                        {%endif%}
+                    {%endwith%}
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label text-white">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label text-white">Apellido:</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-white">Email:</label>
+                        <input type="text" class="form-control" name="email" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_nacimiento" class="form-label text-white">Fecha de Nacimiento:</label>
+                        <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-white">Contraseña:</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label text-white">Confirma contraseña:</label>
+                        <input type="password" class="form-control" name="confirm_password" id="confirm_password">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="terminos_condiciones" id="terminos_condiciones" name="terminos_condiciones">
+                        <label class="form-check-label text-white" for="terminos_condiciones">
+                            Acepto terminos y condiciones
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary hover-grey">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container bg-dark">
+                <form action="/login" class="form-box" method="post" >
+                    <div class="mb-3">
+                        <h1 class="form-title text-success">Login</h1>
+                    </div>
+                    {% with mensajesLogin = get_flashed_messages( category_filter= ["login"] ) %}
+                        {%if mensajesLogin: %}
+                            <div class="alert alert-danger">
+                                <h2 class="text-danger">FLASH!!!</h2>
+                                {% for mensaje in mensajesLogin: %}
+                                    <p class="text-danger">{{mensaje}}</p>
+                                {% endfor %}
+                            </div>
+                        {%endif%}
+                    {%endwith%}
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-white">Email:</label>
+                        <input type="text" class="form-control" name="email" id="email_login">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-white">Contraseña:</label>
+                        <input type="password" class="form-control" name="password" id="password_login">
+                    </div>
+                    <button type="submit" class="btn btn-success hover-grey">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
